@@ -21,11 +21,11 @@
 \usepackage{multicol}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{awesomebox}
-\usepackage{subcaption} % FIXED: Changed from subfig to modern subcaption
+\usepackage{caption,subcaption} 
 \usepackage{pgfornament}
 \usepackage[export]{adjustbox}
 \usepackage{tikzlings}
-\usepackage{fontawesome5} % FIXED: Added so \faExternalLink* and \faEnvelope work
+\usepackage{fontawesome5} 
 
 \addbibresource{howto.bib} %Import the bibliography file
 \fontfamily{put}\selectfont
@@ -128,7 +128,7 @@
 
 
 \begin{document}
-% environment derived from framed.sty: see left bar environment definition
+  % environment derived from framed.sty: see left bar environment definition
     \pagecolor{pink!40!white}\afterpage{\nopagecolor}
     %\maketitle
 
@@ -205,7 +205,7 @@
       \subsection{Medidas de Precaución}
 
     \section{MOPA Setup}
-
+aaaaaaa
     \section{Simulaciones en LTspice}
     
     \begin{figure}[htbp]
@@ -214,60 +214,6 @@
       \caption{Simulación circuito de protección del TA}
       \label{fig:ta}
     \end{figure}
-
-      \begin{minipage}{0.45\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{Images/noise0.png}
-            \captionof{subfigure}{Waveform $I(D)$}
-            \subcaption{Waveform $I(D)$}
-            \label{fig:noise0}
-      \end{minipage}
-        \hfill
-        \begin{minipage}{0.45\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{Images/noise0_fft.png}
-            \captionof{subfigure}{FFT $I(D)$}
-            \subcaption{FFT $I(D)$}
-            \label{fig:noise0ftt}
-        \end{minipage}
-        \vspace{0.2cm}
-        
-        % Row 2
-        \begin{minipage}{0.45\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{Images/noise1.png}
-            \captionof{subfigure}{Waveformy $I(D)$}
-            \subcaption{Waveform $I(D)$}
-            \label{fig:noise1}
-        \end{minipage}
-        \hfill
-        \begin{minipage}{0.45\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{Images/noise1_fft.png}
-            \captionof{subfigure}{FFT $I(D)$}
-            \subcaption{FFT $I(D)$}
-            \label{fig:noise1ftt}
-        \end{minipage}
-      
-        \vspace{0.2cm}
-        % Row 3
-        \begin{minipage}{0.45\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{Images/noise1k.png}
-            \captionof{subfigure}{Waveform $I(D)$}
-            \subcaption{Waveform $I(D)$}
-            \label{fig:noise1k}
-        \end{minipage}
-        \hfill
-        \begin{minipage}{0.45\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{Images/noise1k_fft.png}
-            \captionof{subfigure}{FFT $I(D)$}
-            \subcaption{FFT $I(D)$}
-            \label{fig:noise1kftt}
-        \end{minipage}
-
-
     % ===============================
     % REFERENCES SECTION
     % ===============================
@@ -279,9 +225,4 @@
 
     %\appendix\label{apx}
 
-    \begin{center}
-        \begin{tikzpicture}
-            \bee[cocktail,think={\small\color{black}\centering Thanks!}, bubblecolour=gray!30!white]      
-      \end{tikzpicture}
-    \end{center}
-\end{document}
+ \end{document}
