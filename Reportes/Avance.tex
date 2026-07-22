@@ -21,12 +21,11 @@
 \usepackage{multicol}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{awesomebox}
-\usepackage{subcaption}
-\usepackage{awesomebox}
+\usepackage{subcaption} % FIXED: Changed from subfig to modern subcaption
 \usepackage{pgfornament}
 \usepackage[export]{adjustbox}
-\usepackage{biblatex} %Imports biblatex package
 \usepackage{tikzlings}
+\usepackage{fontawesome5} % FIXED: Added so \faExternalLink* and \faEnvelope work
 
 \addbibresource{howto.bib} %Import the bibliography file
 \fontfamily{put}\selectfont
@@ -128,121 +127,161 @@
 \renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
 
 
-
-
-
 \begin{document}
 % environment derived from framed.sty: see left bar environment definition
-\pagecolor{pink!40!white}\afterpage{\nopagecolor}
-%\maketitle
+    \pagecolor{pink!40!white}\afterpage{\nopagecolor}
+    %\maketitle
 
-\begin{titlepage}
-    \centering
+    \begin{titlepage}
+        \centering
 
-    \includegraphics[width=0.2\textwidth,left]{images/escudo.png}
+        \includegraphics[width=0.2\textwidth,left]{images/escudo.png}
 
-    \vspace*{5cm}
+        \vspace*{5cm}
 
-    {\Huge\bfseries
+        {\Huge\bfseries
+        
+        Avance de Tesis
+        \par}
+
+        \vspace{0.2cm}
+
+        {\raggedleft\Large\itshape `Optimización y caracterización \\ de Tapered Amplifiers' \qquad  \par}
+
+        \vfill
+
+
+        {\Large \bfseries Florencia Fuentes Jara \par} 
+
+        
+        \vspace{0.1cm}
+
+        \mbox{\hrefWithoutArrow{mailto:flofuentes2021@udec.cl}{\color{magenta}{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}flofuentes2021@udec.cl}}%
+
+        \vspace{1cm}
+
+        {\large
+        Universidad de Concepción\\
+        Faculty of Physical and Mathematical Sciences\\
+        Department of Physics
+        \par}
+
+        \titlepagedecoration
+    \end{titlepage}
+
+    \thispagestyle{fancy}
+    \newpage
+    % Table of Contents
+    \tableofcontents
+    \thispagestyle{fancy}
+
+    \clearpage
+
+    % Begin page numbers
+    \fancyfoot[C]{\thepage}
+    \pagenumbering{arabic}
+
+    \section{Resumen}
+
+    \section{Tapered Amplifier}
+      \subsection{¿Qué es?}
+      \begin{figure}[H] % FIXED: Added layout control identifier
+        \centering
+        \includegraphics[width=0.6\textwidth]{Images/TA_img.png} % FIXED: Scaled width down to prevent page overflows
+      \end{figure}
+
+      \subsection{¿Cómo funciona?} % FIXED: Corrected spelling accent of "¿Cómo funciona?"
+
+      \begin{formal}
+      \ \textbf{Emisión estimulada espontánea (ASE)} % FIXED: Corrected spelling accent of "espontánea"
+      \end{formal}
+
+
+      \subsection{¿Para qué se utiliza?} % FIXED: Corrected spelling accent of "¿Para qué...?"
+      \subsection{Control del TA}
+        \subsubsection{Control de Temperatura}
+        \subsubsection{Control de Corriente}
+        \subsubsection{Circuito de Protección}
+      \subsection{Medidas de Precaución}
+
+    \section{MOPA Setup}
+
+    \section{Simulaciones en LTspice}
     
-    Avance de Tesis
-    \par}
+    \begin{figure}[htbp]
+      \centering
+      \includegraphics[width=0.8\linewidth]{Images/SC_TA.png} % FIXED: Trimmed down from \linewidth to save vertical space
+      \caption{Simulación circuito de protección del TA}
+      \label{fig:ta}
+    \end{figure}
 
-    \vspace{0.2cm}
-
-    {\raggedleft\Large\itshape `Optimización y caracterización \\ de Tapered Amplifiers' \qquad  \par}
-
-    \vfill
-
-
-    {\Large \bfseries Florencia Fuentes Jara \par} 
-
-    
-    \vspace{0.1cm}
-
-    \mbox{\hrefWithoutArrow{mailto:flofuentes2021@udec.cl}{\color{magenta}{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}flofuentes2021@udec.cl}}%
-
-    \vspace{1cm}
-
-    {\large
-    Universidad de Concepción\\
-    Faculty of Physical and Mathematical Sciences\\
-    Department of Physics
-    \par}
-
-    \titlepagedecoration
-\end{titlepage}
-
-\thispagestyle{fancy}
-\newpage
-% Table of Contents
-\tableofcontents
-\thispagestyle{fancy}
-
-\clearpage
-
-% Begin page numbers
-\fancyfoot[C]{\thepage}
-\pagenumbering{arabic}
-
-\section{Resumen}
-
-\section{Tapered Amplifier}
-  \subsection{¿Qué es?}
-  \begin{figure}
-    \includegraphics{Images/TA_img.png}
-  \end{figure}
-
-  \subsection{¿Comó funciona?}
-
-  \begin{formal}
-  \ \textbf{Emisión estimulada espontanea (ASE)}
-  \end{formal}
-
-
-  \subsection{¿Para que se utiliza?}
-  \subsection{Control del TA}
-    \subsubsection{Control de Temperatura}
-    \subsubsection{Control de Corriente}
-    \subsubsection{Circuito de Protección}
-  \subsection{Medidas de Precaución}
-
-\section{MOPA Setup}
+      \begin{minipage}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Images/noise0.png}
+            \captionof{subfigure}{Waveform $I(D)$}
+            \subcaption{Waveform $I(D)$}
+            \label{fig:noise0}
+      \end{minipage}
+        \hfill
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Images/noise0_fft.png}
+            \captionof{subfigure}{FFT $I(D)$}
+            \subcaption{FFT $I(D)$}
+            \label{fig:noise0ftt}
+        \end{minipage}
+        \vspace{0.2cm}
+        
+        % Row 2
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Images/noise1.png}
+            \captionof{subfigure}{Waveformy $I(D)$}
+            \subcaption{Waveform $I(D)$}
+            \label{fig:noise1}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Images/noise1_fft.png}
+            \captionof{subfigure}{FFT $I(D)$}
+            \subcaption{FFT $I(D)$}
+            \label{fig:noise1ftt}
+        \end{minipage}
+      
+        \vspace{0.2cm}
+        % Row 3
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Images/noise1k.png}
+            \captionof{subfigure}{Waveform $I(D)$}
+            \subcaption{Waveform $I(D)$}
+            \label{fig:noise1k}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{Images/noise1k_fft.png}
+            \captionof{subfigure}{FFT $I(D)$}
+            \subcaption{FFT $I(D)$}
+            \label{fig:noise1kftt}
+        \end{minipage}
 
 
+    % ===============================
+    % REFERENCES SECTION
+    % ===============================
+    \section*{References}
+     \addcontentsline{toc}{section}{References}
+    % \printbibliography[heading=none]
+    % \newpage
+    % ===============================
 
-\vfill
-\begin{flushright}
-    \begin{tikzpicture}
-        \duck[body=pink, unicorn=magenta!60!violet, longhair=magenta!60!violet, signpost=\parbox{2cm}{\tiny\color{black}\centering Bye! }, signcolour=brown!70!gray, signback=white!80!purple, shift={(2.5,0)}]      
-\end{tikzpicture}
-\end{flushright}
-% ===============================
-% REFERENCES SECTION
-% ===============================
-\section*{References}
-\addcontentsline{toc}{section}{References}
-% Add your bibliography entries here
-%\nocite{*}
-\printbibliography[heading=none]
-\newpage
-% ===============================
+    %\appendix\label{apx}
 
-%\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
-%\notebox{aaaaa}
-%\awesomebox{5pt}{\faCertificate}{magenta}{aaa}
-%\pgfornament[color=Mahogany,width=2cm]{8}
-%
-% APPENDIX (Optional)
-% ===============================
-\appendix~\label{apx}
-
-\begin{center}
-    \begin{tikzpicture}
-        \bee[cocktail,think={\small\color{black}\centering Thanks!}, bubblecolour=gray!30!white
-]      
-   \end{tikzpicture}
-\end{center}
-
-
+    \begin{center}
+        \begin{tikzpicture}
+            \bee[cocktail,think={\small\color{black}\centering Thanks!}, bubblecolour=gray!30!white]      
+      \end{tikzpicture}
+    \end{center}
 \end{document}

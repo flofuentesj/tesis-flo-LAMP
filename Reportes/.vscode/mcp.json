@@ -1,0 +1,16 @@
+{
+  "servers": {
+    "latex-server": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/path/to/mcp-latex-server",
+        "run",
+        "latex_server.py"
+      ],
+      "env": {
+        "LATEX_SERVER_BASE_PATH": "${workspaceFolder}"
+      }
+    }
+  }
+}
